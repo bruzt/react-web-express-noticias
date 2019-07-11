@@ -1,0 +1,17 @@
+
+#main-admin {
+    
+    /*border: solid 2px dodgerblue;*/
+    background-color: #cecdcdcd;
+}
+
+#header-admin {
+
+    width: 100%;
+    /*border: solid 2px red;*/
+}
+
+#footer-admin {
+
+    border: solid 2px darkorange;
+}

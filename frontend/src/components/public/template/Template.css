@@ -1,0 +1,21 @@
+
+#right-panel-public {
+
+    border: solid 2px forestgreen;
+}
+
+.sombra:hover {
+
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+
+a:hover {
+
+    color: ''
+}
+
+header {
+
+    background: linear-gradient(131.26deg, rgb(163, 23, 23) 30%, black 100%)
+}
