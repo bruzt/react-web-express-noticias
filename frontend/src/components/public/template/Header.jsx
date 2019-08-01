@@ -1,18 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 import logoImg from '../../../assets/img/logo-200x100.jpg';
 
 export default class Header extends React.Component {
 
     render(){
+        
         return (
-            <div className="container">
-                <div className="row">
-                    <header {...this.props} className='col d-sm-flex d-none p-0 mx-lg-5' style={{ height: '100px' }}>
+            <div className="row">
+                <div className='col p-0'>
+                    <StyledHeader {...this.props}>
                         <div className="col p-0">
-                            <nav className="navbar p-0" /*style={{ position: 'absolute', top: '1px', left: '1px' }}*/>
-                                <Link to={"/"} className='nav-brand order-1'>
+                            <nav className="navbar p-0">
+                                <Link to={"/"} className='nav-brand'>
                                     <img src={logoImg} alt="logo-img" />
                                 </Link>
                             </nav>
@@ -23,13 +25,33 @@ export default class Header extends React.Component {
                         </div>
 
                         <div className="col">
-                            <Link to='/admin' className='btn' style={{ position: 'absolute', bottom: '1px', right: '1px' }}>
+                            <StyledLink to='/admin' className='btn'>
                                 <i className="fa fa-gear" />
-                            </Link>       
+                            </StyledLink>       
                         </div>  
-                    </header>
+                    </StyledHeader>
                 </div>
             </div>
         );
     }
 }
+
+const StyledHeader = styled.header`
+    display: none;
+    height: 100px;
+    padding: 0;
+    background: linear-gradient(131.26deg, rgb(163, 23, 23) 30%, black 100%);
+    
+    @media (min-width: 768px) {
+        display: flex;
+    }
+    /*@media (min-width: 1200px) {
+        margin: 0 100px 0 100px;
+    }*/
+`;
+
+const StyledLink = styled(Link)`
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
+`;

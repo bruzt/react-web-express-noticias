@@ -1,14 +1,21 @@
 import React from 'react';
+import styled from 'styled-components';
 
-class LeftPanelPublic extends React.Component {
+export default class LeftPanelPublic extends React.Component {
 
     render(){
         return (
-            <div {...this.props} id='right-panel-public'>
+            <StyledDiv {...this.props}>
                 PAINEL DIREITO <br /> PAINEL DIREITO <br /> PAINEL DIREITO <br /> PAINEL DIREITO <br /> PAINEL DIREITO <br /> PAINEL DIREITO <br /> PAINEL DIREITO <br /> PAINEL DIREITO <br /> PAINEL DIREITO <br /> PAINEL DIREITO <br /> PAINEL DIREITO <br /> PAINEL DIREITO <br /> PAINEL DIREITO <br /> PAINEL DIREITO <br /> PAINEL DIREITO <br /> PAINEL DIREITO <br />
-            </div>
+            </StyledDiv>
         );
     }
 }
 
-export default LeftPanelPublic;
+const StyledDiv = styled.div`
+    border: solid 2px forestgreen;
+    display: flex;
+    min-height: 720px;
+    height: 100%;
+    justify-content: center;
+`;

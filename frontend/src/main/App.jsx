@@ -1,6 +1,5 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import { Switch, Route, Redirect } from 'react-router';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 
 import '../dependencies/jquery';
 import 'bootstrap/dist/js/bootstrap.bundle';

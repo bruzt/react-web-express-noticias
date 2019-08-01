@@ -2,21 +2,23 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import draftToHtml from 'draftjs-to-html';
-import { convertFromRaw } from 'draft-js';
+//import { convertFromRaw } from 'draft-js';
+import styled from 'styled-components';
 
 export default class NewsListItem extends React.Component {
 
     render(){
         return (
-            <li className="media sombra d-flex p-0 p-md-1 mr-2 mr-md-0 mt-2" style={{ height: '155px' }}>
+            
+            <StyledLi className="media sombra">
 
-                <div className='w-25' /*style={{ width: '200px' }}*/>
+                <StyledImgWrapper>
                     <Link to={`/noticias/${this.props.row._id}/${this.props.row.title.split(' ').join('-')}`} >
-                        <img className="d-none d-md-block pr-2 mt-3" src={this.props.row.imgURL} alt="" style={{ maxWidth: '200px', maxHeight: '150px', width: 'auto', height: 'auto' }} />
+                        <StyledImg src={this.props.row.imgURL} alt="" />
                     </Link>
-                </div>
+                </StyledImgWrapper>
                 
-                <div className="w-100 ml-lg-4 ml-n5">
+                <StyledMediaBody>
                     <div className="media-body">
                         <div className="container">
                             <div className="row" style={{ height: '30px', overflow: 'hidden' }}>
@@ -41,9 +43,49 @@ export default class NewsListItem extends React.Component {
                             </div>
                         </div>
                     </div>
-                </div>
+                </StyledMediaBody>
                 
-            </li>
+            </StyledLi>
         );
     }
 }
+
+const StyledLi = styled.li`
+    display: flex;
+    height: 155px;
+    width: 750px;
+    padding: 0;
+    margin: 10px 10px 0 0;
+`;
+
+const StyledImgWrapper = styled.div`
+    width: 25%;
+
+    @media (max-width: 992px) {
+        display: none;
+        width: 0;
+    }
+`;
+
+const StyledImg = styled.img`
+    max-width: 200px;
+    max-height: 150px;
+    width: auto;
+    height: auto;
+    padding-right: 5px;
+    margin-top: 5px;
+
+    @media (max-width: 992px) {
+        display: none;
+    }
+`;
+
+const StyledMediaBody = styled.div`
+    width: 100%;
+    padding-right: 5px;
+
+    /*@media (min-width: 1200px) {
+
+        
+    }*/
+`;

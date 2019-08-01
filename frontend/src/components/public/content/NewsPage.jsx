@@ -3,6 +3,7 @@ import axios from 'axios';
 import moment from 'moment';
 import ReactDisqusComments from 'react-disqus-comments';
 import draftToHtml from 'draftjs-to-html';
+import styled from 'styled-components';
 
 import PublicTemplate from '../template/PublicTemplate';
 import RightPanelPublic from '../rightPanel/RightPanelPublic';
@@ -57,11 +58,12 @@ export default class Newspage extends React.Component {
     render(){
         return (
             <PublicTemplate>
-                <div className="container">
-                    <div className="row">
+                
+                <div className="row">
+                    <div className="col-lg-8">
 
-                        <main className='col-lg-8 d-flex ml-lg-5' id='main-public'>
-                            <div className="container">
+                        <StyledMain>
+                            
                                 <div className="mt-3 text-light">
                                     <h1>{this.state.news.title}</h1>
                                     <small>enviado por {this.state.news.userId} em {moment(this.state.news.createdAt).format('DD/MM/YYYY - HH:mm')}</small>
@@ -93,13 +95,35 @@ export default class Newspage extends React.Component {
                                     url={window.location.href}
                                 />
                                 
-                            </div>
-                        </main>
-
-                        <RightPanelPublic className='mt-3 col-lg-3' />
+                            
+                        </StyledMain>
                     </div>
+                    <StyledRightPanelCol className="col-lg-4">
+
+                        <RightPanelPublic />
+                        
+                    </StyledRightPanelCol>
                 </div>
+                
             </PublicTemplate>
         );
     }
 }
+
+const StyledMain = styled.main`
+    /*display: flex;*/
+    margin: 0;
+
+    /*@media (min-width: 1200px) {
+        margin-left: 85px;
+    }*/
+`;
+
+const StyledRightPanelCol = styled.div`
+    padding: 0;
+    margin: 10px 0 10px 0;
+
+   /* @media (min-width: 1200px) {
+        margin: 10px 80px 0 10px;
+    }*/
+`;

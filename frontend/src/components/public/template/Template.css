@@ -1,8 +1,4 @@
 
-#right-panel-public {
-
-    border: solid 2px forestgreen;
-}
 
 .sombra:hover {
 
@@ -13,9 +9,4 @@
 a:hover {
 
     color: ''
-}
-
-header {
-
-    background: linear-gradient(131.26deg, rgb(163, 23, 23) 30%, black 100%)
 }

@@ -11,14 +11,24 @@ export default class PublicTemplate extends React.Component {
     render(){
         return (
             <React.Fragment>
+                <div className='container-fluid'>
 
-                <Header id='header-public' login='true' />
-                <MenuPublic />
+                    <Header login='true' />
+                    <MenuPublic />
 
-                {this.props.children}
-                
-                <Footer id='footer-public' />
+                </div>
 
+                <div className="container">
+
+                    {this.props.children}
+                    
+                </div>
+
+                <div className='container-fluid'>
+
+                    <Footer />
+
+                </div>
             </React.Fragment>
         );
     }
