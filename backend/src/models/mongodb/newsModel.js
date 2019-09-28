@@ -1,11 +1,11 @@
 const mongodb = require('../../databases/mongodb/connection');
-const userModel = require('./userModel');
+//const userModel = require('./userModel');
 
 const newsSchema = mongodb.Schema({
     
     userId: {
         type: mongodb.Schema.Types.ObjectId,
-        ref: userModel,
+        ref: 'cl_user',
         required: true
     },
 

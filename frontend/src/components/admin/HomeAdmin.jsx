@@ -27,8 +27,8 @@ class AdminHome extends React.Component {
         return (
             <AdminTemplate logout='true'>
 
-                <div className="container-fluid bg-dark pr-0">
-                    <div className="row">
+                <div className="container-fluid bg-dark">
+                    <div className="row" style={{ marginRight: '-45px' }}>
                         <MenuAdmin changePage={this.changePage} />
                         <MainAdmin page={this.state.page} />
                     </div>

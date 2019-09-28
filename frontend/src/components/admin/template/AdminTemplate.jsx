@@ -14,7 +14,9 @@ export default class PublicTemplate extends React.Component {
             <React.Fragment>
 
                 <AdminHeader id='header-admin' logout={this.props.logout} />
+
                 {this.props.children}
+
                 <Footer id='footer-public' />
 
             </React.Fragment>

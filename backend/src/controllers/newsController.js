@@ -41,8 +41,8 @@ router.get(`${route}/:id`, async (req, res, next) => {
 
     try {
 
-        const result = await newsModel.findById(req.params.id);
-
+        const result = await newsModel.findById(req.params.id).populate('userId');
+        
         return res.json(result);
         
     } catch (error) {

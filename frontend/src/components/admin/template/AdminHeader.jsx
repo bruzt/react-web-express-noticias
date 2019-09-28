@@ -17,7 +17,7 @@ export default class Header extends React.Component {
 
     render(){
         return (
-            <div className="container-fluid p-0">
+            <div className="container-fluid p-0" style={{ border: '1px solid green' }}>
                 <div className="row">
                     <header {...this.props} className='col d-sm-flex d-none' style={{ height: '100px' }}>
                         <div className="col p-0">

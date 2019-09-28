@@ -66,7 +66,7 @@ export default class Newspage extends React.Component {
                             
                                 <div className="mt-3 text-light">
                                     <h1>{this.state.news.title}</h1>
-                                    <small>enviado por {this.state.news.userId} em {moment(this.state.news.createdAt).format('DD/MM/YYYY - HH:mm')}</small>
+                                    <small>enviado por {(this.state.news.userId) ? this.state.news.userId.name : ''} em {moment(this.state.news.createdAt).format('DD/MM/YYYY - HH:mm')}</small>
                                     <br />
                                     <br />
                                     <img src={this.state.news.imgURL} alt="" style={{ maxWidth: '100%', maxHeight: '100%' }} />

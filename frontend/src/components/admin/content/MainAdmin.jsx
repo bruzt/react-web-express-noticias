@@ -11,7 +11,7 @@ class MainAdmin extends React.Component {
 
         return (
             
-            <main className='col-lg-10 col-md-11' id='main-admin' style={{ minHeight: '400px' }}>
+            <main className='col-lg-10 col-md-11' id='main-admin' style={{ minHeight: '400px', border: '1px solid red' }}>
                 <div className="container d-flex">
 
                     <If test={this.props.page === 'dashboard'}>
