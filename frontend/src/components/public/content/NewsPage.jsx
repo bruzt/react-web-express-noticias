@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import moment from 'moment';
 import ReactDisqusComments from 'react-disqus-comments';
-import draftToHtml from 'draftjs-to-html';
 import styled from 'styled-components';
 
 import PublicTemplate from '../template/PublicTemplate';
@@ -20,6 +19,11 @@ export default class Newspage extends React.Component {
         }
 
         this.getNews();
+    }
+
+    componentDidUpdate(){
+
+        document.getElementById("news-content").innerHTML = this.state.news.news
     }
 
     getNews(){
@@ -72,8 +76,8 @@ export default class Newspage extends React.Component {
                                     <img src={this.state.news.imgURL} alt="" style={{ maxWidth: '100%', maxHeight: '100%' }} />
                                     <br />
                                     <br />
-                                    <div className='text-justify'>
-                                        {draftToHtml(this.state.news.news)}
+                                    <div id='news-content' className='text-justify'>
+                                        {/*draftToHtml(*/  /*)*/}
                                     </div>
         
                                     <small>Fonte: {this.state.news.sources}</small>

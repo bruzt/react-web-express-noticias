@@ -1,11 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
-import draftToHtml from 'draftjs-to-html';
-//import { convertFromRaw } from 'draft-js';
 import styled from 'styled-components';
 
 export default class NewsListItem extends React.Component {
+
+   
+
+    componentDidMount(){
+       
+        document.getElementById('content-box').innerHTML = this.props.row.news;
+    }
 
     render(){
         return (
@@ -29,8 +34,8 @@ export default class NewsListItem extends React.Component {
                                 </h5>
                             </div>
                             <div className="row" style={{ height: '100px', overflow: 'hidden' }}>
-                                <div className='text-justify text-muted mt-1'>
-                                    {draftToHtml(this.props.row.news)}
+                                <div id='content-box' className='text-justify text-muted mt-1'>
+                                   
                                 </div>
                             </div>
                             <div className="row" style={{ height: '20px', backgroundColor: 'grey' }}>

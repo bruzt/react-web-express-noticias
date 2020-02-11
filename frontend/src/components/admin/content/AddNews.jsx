@@ -1,7 +1,6 @@
 import React from 'react';
-import { EditorState, convertToRaw } from 'draft-js';
-import { Editor } from 'react-draft-wysiwyg';
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import Quill from 'quill';
+import './quill.css';
 import axios from 'axios';
 
 //import Toolbar from './draftTextArea/Toolbar';
@@ -12,18 +11,17 @@ export default class AddNews extends React.Component {
         super(props);
 
         this.state = {
-            editorState: EditorState.createEmpty(),
             title: '',
             sources: '',
             tags: ''
         };
-
-        this.onChangeEditor = this.onChangeEditor.bind(this);
     }
 
-    onChangeEditor(editorState){
+    componentDidMount(){
 
-        this.setState({ editorState });
+        new Quill('#quill', {
+            theme: 'snow'
+        });
     }
 
     handleChange(event){
@@ -56,7 +54,7 @@ export default class AddNews extends React.Component {
         const news = {
             userId: JSON.parse(sessionStorage.getItem('_userLogin') || localStorage.getItem('_userLogin')).id,
             title: this.state.title,
-            news: convertToRaw(this.state.editorState.getCurrentContent()),
+            news: document.getElementById('quill').querySelector('.ql-editor').innerHTML, //convertToRaw(this.state.editorState.getCurrentContent()),
             tags: this.state.tags.split(','),
             sources: this.state.sources.split(',')
         }
@@ -98,6 +96,15 @@ export default class AddNews extends React.Component {
 
                             <div className="row w-100 justify-content-center mt-2">
                                 <div className='bg-light' style={{ minHeight: '250px', width: '75%', border: '1px solid black' }}>
+                                    
+                                    <div 
+                                        id='quill' 
+                                        style={{ height: "250px" }}
+                                    >
+                                        
+                                    </div>
+
+                                    {/*
                                     <Editor
                                         toolbarClassName="toolbarClassName"
                                         wrapperClassName="wrapperClassName"
@@ -105,6 +112,7 @@ export default class AddNews extends React.Component {
                                         editorState={this.state.editorState}
                                         onEditorStateChange={this.onChangeEditor}
                                     />
+                                    */}
                                     {/*<Editor 
                                         editorState={this.state.editorState} 
                                         onChangeEditor={this.onChangeEditor} 
@@ -117,7 +125,7 @@ export default class AddNews extends React.Component {
                             </div>
 
                             <div className="row w-100 justify-content-center">
-                                <label>Tags:&nbsp;</label>
+                                <label>Tags: &nbsp;</label>
                                 <input className='w-50' type="text" name='tags' value={this.state.tags} onChange={(event) => this.handleChange(event)} />
                             </div>
 
