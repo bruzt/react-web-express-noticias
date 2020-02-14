@@ -24,7 +24,7 @@ export default class PublicTemplate extends React.Component {
                     
                 </div>
 
-                <div className='container-fluid'>
+                <div className='container-fluid p-0'>
 
                     <Footer />
 

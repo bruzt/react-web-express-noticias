@@ -75,7 +75,7 @@ router.get(`${route}/search/:match`, async (req, res, next) => {
 router.post(`${route}`, jwtAuth, async (req, res, next) => {
 
     req.assert('userId', 'Erro no usuário').isMongoId();
-    req.assert('title', 'Titulo inválido, precisa ter no minimo 5 caracteres').isLength({ min: 5, max: 50});
+    req.assert('title', 'Titulo inválido, precisa ter no minimo 5 caracteres').isLength({ min: 5, max: 100});
     req.assert('news', 'noticia inválida').notEmpty(); //.isLength({ min: 50});
     
     if(req.validationErrors()) {
