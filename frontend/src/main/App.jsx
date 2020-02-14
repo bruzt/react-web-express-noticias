@@ -1,14 +1,12 @@
 import React from 'react';
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 
 import '../dependencies/jquery';
 import 'bootstrap/dist/js/bootstrap.bundle';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 
-import HomeOrSearch from '../components/public/HomeOrSearch';
-import LoginPageOrAdminPage from '../components/admin/Login/LoginPageOrAdminPage';
-import NewsPage from '../components/public/content/NewsPage';
+import GlobalStyle from './GlobalStyle';
+import Routes from './Routes';
 
 export default class App extends React.Component {
 
@@ -47,19 +45,11 @@ export default class App extends React.Component {
 
     render() {
         return (
-            <BrowserRouter>
-                <Switch>
-                                
-                    <Route exact path='/' component={HomeOrSearch} />
-                    <Route path='/busca/:search' component={HomeOrSearch} />
-                    <Route path='/noticias/:id/:title' component={NewsPage} />
+            <>
+                <GlobalStyle />
 
-                    <Route path='/admin' component={LoginPageOrAdminPage} />
-
-                    <Redirect from='*' to='/' />
-
-                </Switch>
-            </BrowserRouter>
+                <Routes />
+            </>
         );
     }
 }

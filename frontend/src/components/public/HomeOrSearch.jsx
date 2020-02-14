@@ -82,7 +82,7 @@ export default class HomeOrSearch extends React.Component {
         } else if(this.state.getNews === false) {
 
             return (
-                <h3>Nada encontrado!</h3>
+                <h3 style={{ marginTop: 20 }}>Nada encontrado!</h3>
             );
 
         } else {

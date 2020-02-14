@@ -5,11 +5,9 @@ import styled from 'styled-components';
 
 export default class NewsListItem extends React.Component {
 
-   
 
     componentDidMount(){
-       
-        document.getElementById('content-box').innerHTML = this.props.row.news;
+        document.getElementById(this.props.row._id).innerHTML = this.props.row.news;
     }
 
     render(){
@@ -33,10 +31,12 @@ export default class NewsListItem extends React.Component {
                                     </Link>
                                 </h5>
                             </div>
-                            <div className="row" style={{ height: '100px', overflow: 'hidden' }}>
-                                <div id='content-box' className='text-justify text-muted mt-1'>
-                                   
-                                </div>
+                            <div className="row" style={{ height: '50px', overflow: 'hidden' }}>
+                                <ContentBox 
+                                    id={this.props.row._id} 
+                                    className='text-muted mt-1'
+                                >                                   
+                                </ContentBox>
                             </div>
                             <div className="row" style={{ height: '20px', backgroundColor: 'grey' }}>
                                 <small>
@@ -57,7 +57,7 @@ export default class NewsListItem extends React.Component {
 
 const StyledLi = styled.li`
     display: flex;
-    height: 155px;
+    height: 100px;
     width: 750px;
     padding: 0;
     margin: 10px 10px 0 0;
@@ -93,4 +93,16 @@ const StyledMediaBody = styled.div`
 
         
     }*/
+`;
+
+const ContentBox = styled.div`
+    text-align: justify;
+
+    p {
+        margin: 0;
+    }
+
+    ul, ol {
+        margin: 0 0 0 25px;
+    }
 `;

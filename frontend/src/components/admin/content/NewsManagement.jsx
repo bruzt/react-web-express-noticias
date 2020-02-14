@@ -81,7 +81,7 @@ export default class NewsManagement extends React.Component {
 
         return this.state.news.map( (item, index) => {
             return (
-                <tr key={index}>
+                <tr key={index}> 
                     <td>{item.title}</td>
                     <td>{moment(item.createdAt).format('DD/MM/YYYY - HH:mm')}</td>
                     <td>

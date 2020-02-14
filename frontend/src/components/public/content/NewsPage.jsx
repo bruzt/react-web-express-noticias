@@ -22,8 +22,8 @@ export default class Newspage extends React.Component {
     }
 
     componentDidUpdate(){
-
-        document.getElementById("news-content").innerHTML = this.state.news.news
+        console.log(this.state.news.news)
+        document.getElementById("news-content").innerHTML = this.state.news.news;
     }
 
     getNews(){
@@ -76,9 +76,10 @@ export default class Newspage extends React.Component {
                                     <img src={this.state.news.imgURL} alt="" style={{ maxWidth: '100%', maxHeight: '100%' }} />
                                     <br />
                                     <br />
-                                    <div id='news-content' className='text-justify'>
+
+                                    <NewsContent id='news-content' className='text-justify'>
                                         {/*draftToHtml(*/  /*)*/}
-                                    </div>
+                                    </NewsContent>
         
                                     <small>Fonte: {this.state.news.sources}</small>
                                     <br />
@@ -130,4 +131,16 @@ const StyledRightPanelCol = styled.div`
    /* @media (min-width: 1200px) {
         margin: 10px 80px 0 10px;
     }*/
+`;
+
+const NewsContent = styled.div`
+    text-align: justify;
+
+    p {
+        margin: 0;
+    }
+    
+    ul, ol {
+        margin: 0 0 0 25px;
+    }
 `;
